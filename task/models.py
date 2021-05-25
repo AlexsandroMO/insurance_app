@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 class Product(models.Model): #Títulos de projeto
 
     name_product = models.CharField(max_length=255, verbose_name='TIPOS DE PRODUTO')
-    comments = models.TextField(verbose_name='OBS')
+    comments = models.TextField(blank=True, null=False,verbose_name='OBS')
     update_at = models.DateTimeField(auto_now=True)
     create_at = models.DateTimeField(auto_now_add=True)
 
@@ -16,7 +16,7 @@ class Product(models.Model): #Títulos de projeto
 class Agency(models.Model): #Títulos de projeto
 
     name_agency = models.CharField(max_length=255, verbose_name='ANGÊNCIAS')
-    comments = models.TextField(verbose_name='OBS')
+    comments = models.TextField(blank=True, null=False,verbose_name='OBS')
     update_at = models.DateTimeField(auto_now=True)
     create_at = models.DateTimeField(auto_now_add=True)
 
@@ -26,7 +26,7 @@ class Agency(models.Model): #Títulos de projeto
 class Secure(models.Model): #Títulos de projeto
 
     name_secure = models.CharField(max_length=255, verbose_name='TIPOS DE SEGUROS')
-    comments = models.TextField(verbose_name='OBS')
+    comments = models.TextField(blank=True, null=False,verbose_name='OBS')
     update_at = models.DateTimeField(auto_now=True)
     create_at = models.DateTimeField(auto_now_add=True)
 
@@ -54,6 +54,7 @@ class Cliente(models.Model): #Títulos de projeto
     email= models.CharField(max_length=255, blank=True, null=False, verbose_name='E-MAIL')
     comments = models.TextField(blank=True, null=False, verbose_name='OBS')
     date_contract = models.DateField(blank=True, null=True, verbose_name='DATA SEGURO')
+    #user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     update_at = models.DateTimeField(auto_now=True)
     create_at = models.DateTimeField(auto_now_add=True)
 

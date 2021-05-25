@@ -1,6 +1,6 @@
 
 
-def format_cpf_cnpj(var):
+def format_cpf_cnpj(var, a):
   
   num_str = var.replace('.','')
 
@@ -8,7 +8,9 @@ def format_cpf_cnpj(var):
 
   #print(len(num_str)-1)
 
-  if len(num_str) == 3:
+  if (len(num_str)-2) == 2:
+    result = '{},{}'.format(num_str[:len(num_str)-2][:3], num_str[len(num_str)-2:])
+  elif len(num_str) == 3:
     result = '{},{}'.format(num_str[:len(num_str)-2][:1], num_str[len(num_str)-2:])
   elif (len(num_str)-2) == 3:
     #print('{},{}'.format(num_str[:len(num_str)-2][:3], num_str[len(num_str)-2:]))
@@ -40,6 +42,7 @@ def format_cpf_cnpj(var):
     #print('{}.{}.{},{}'.format(num_str[:len(num_str)-2][:3], num_str[:len(num_str)-2][1:4], num_str[:len(num_str)-2][4:7], num_str[len(num_str)-2:]))
     result = '{}.{}.{},{}'.format(num_str[:len(num_str)-2][:3], num_str[:len(num_str)-2][1:4], num_str[:len(num_str)-2][4:7], num_str[len(num_str)-2:])
 
+  print('>>>>>>>>>>>',result, a)
   return result
 
 

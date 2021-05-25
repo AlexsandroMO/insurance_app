@@ -42,7 +42,38 @@ h3{
     background-color: #58c8f3;
 }
 
-#h3-color{
+#box4{
+    background-color: #fcbb05;
+}
+
+/* #search{
+    width: 300px;
+} */
+
+.pagination{
+    padding-top: 20px;
+}
+
+#i-seta-front{
+    padding-left: 20px;
+}
+
+#i-seta-back{
+    padding-right: 20px;
+}
+
+#search-btn{
+    position:relative;
+    top: -28px;
+    left: 240px;
+}
+
+#carrega-db{
+    display: none;
+}
+
+
+.h3-color{
     color: #fff;
 }
 

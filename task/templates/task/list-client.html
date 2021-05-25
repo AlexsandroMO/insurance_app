@@ -8,6 +8,15 @@
 {% block content %}
 
 <div id="content" class="">
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     
     <h2 id="esconde-test"><a href="{% url 'new-segur' %}"><i class="fas fa-plus"></a></i> Lista de Clientes</h2>
         <div id="content-main">
@@ -16,20 +25,20 @@
                     <li><input class="button" onclick="window.history.go(-1);" value="Voltar"></li>
                 </ul>
 
+                <div class="col-2 search-div">
+                    <form method="GET" id="search-form">
+                        <input class="form-control" type="text" id="search" name="search" placeholder="Digite o Nome do Cliente..." value="{{ request.GET.search }}"><i class="fas fa-search" id="search-btn"></i>
+                    </form>
+                </div>
+
+
     <div class="module" id="changelist">
         <div class="changelist-form-container">
             <!-- Form -->
             <form id="changelist-form" method="post" novalidate="">
             <input type="hidden" name="csrfmiddlewaretoken" value="TessxjKpLI1tDZBRnp7gv6zZNzoYmPtbDchuvswvHuwJdazLjGBOMQ1y8cY9c7pI">
 
-            <!-- <div class="actions">
-                <label>Ação: <select name="action" required="">
-                <option value="" selected="">---------</option>
-                <option value="delete_selected">Remover clientes selecionados</option>
-                </select></label><input type="hidden" name="select_across" value="0" class="select-across">
-                <button type="submit" class="button" title="Executar ação selecionada" name="index" value="0">Ir</button>
-                <span class="action-counter" data-actions-icnt="2">0 de 2 selecionados</span>
-            </div> -->
+  
     <br>
 <!-- Tabela de Clientes-->
     <div class="results">
@@ -150,14 +159,37 @@
             </tbody>
         </table>
     </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if Clientes.has_previous %}
+                <a href="?page={{ Clientes.previous_page_number }}"><i class="fas fa-arrow-left" id="i-seta-back"></i></a>
+            {% endif %}
+            
+            {% if Clientes.paginator.num_pages %}
+            <span class="current">
+                {{ Clientes.number }} de {{ Clientes.paginator.num_pages }}
+            </span>
+            {% endif %}
+        
+            {% if Clientes.has_next %}
+                <a href="?page={{ Clientes.next_page_number }}"><i class="fas fa-arrow-right" id="i-seta-front"></i></a>
+            {% endif %}
+        </span>
+    </div>
     
-    {% if length > 1 %}
+    <!-- {% if length > 1 %}
         <p class="paginator">{{length}} Clientes</p>
     {% else %}
         <p class="paginator">{{length}} Cliente</p>
-    {% endif %}   
+    {% endif %}  
+  -->
     </form>
     </div>
+
+
+   
+
                 
             </div>
           </div>

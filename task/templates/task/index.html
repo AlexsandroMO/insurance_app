@@ -110,30 +110,49 @@
                 <div class="div-box" id="box1">
                     <i class="fa fa-facebook"></i>
                     <ul>
-                        <sctrong><h3 id="h3-color">Prospecção</h3>
+                        <sctrong><h3 class="h3-color">Prospecção</h3>
                     </ul>
                 </div>
      
                 <div class="div-box" id="box2">
                     <i class="fa fa-facebook"></i>
                     <ul>
-                        <sctrong><h3 id="h3-color">Atividades</h3>
+                        <sctrong><h3 class="h3-color">Atividades</h3>
                     </ul>
                 </div>
 
                 <div class="div-box" id="box3">
                     <i class="fa fa-facebook"></i>
                     <ul>
-                        <sctrong><h3 id="h3-color">Tarefas</h3>
+                        <sctrong><h3 class="h3-color">Tarefas</h3>
+                    </ul>
+                </div>
+
+                <div class="div-box" id="box4">
+                    <i class="fa fa-facebook"></i>
+                    <ul>
+                        <sctrong><h3 class="h3-color">Outros</h3>
                     </ul>
                 </div>
         </div>
     </div>
 </div>    
     
+<input type="text" id="p-status" value="{{status}}" hidden>AA</p>
 
 <script>
-     $('#cliente-bt').click(function() {
+
+    $(window).load(function(){
+
+        let lido = document.getElementById('p-status').value
+        if (lido == 'True'){
+            console.log('>>>>>>>>>>', lido)
+            alert('Planilha Carregada com Sucesso!')
+        }
+        
+    });
+
+    $('#cliente-bt').click(function() {
         window.location.assign("http://127.0.0.1:8000/lista_cliente");
         
     });
@@ -142,22 +161,32 @@
        let lido = document.getElementById('inline-radio1').value
        console.log('HI', lido)
        window.location.assign(`http://127.0.0.1:8000/?${lido}`);
-   });
-   $('#inline-radio2').click(function() {
+    });
+    $('#inline-radio2').click(function() {
        let lido = document.getElementById('inline-radio2').value
        console.log('HI', lido)
        window.location.assign(`http://127.0.0.1:8000/?${lido}`);
-   });
-   $('#inline-radio3').click(function() {
+     });
+    $('#inline-radio3').click(function() {
        let lido = document.getElementById('inline-radio3').value
        console.log('HI', lido)
        window.location.assign(`http://127.0.0.1:8000/?${lido}`);
-   });
-   $('#inline-radio4').click(function() {
+    });
+    $('#inline-radio4').click(function() {
        let lido = document.getElementById('inline-radio4').value
        console.log('HI', lido)
        window.location.assign(`http://127.0.0.1:8000/?${lido}`);
-   });
+    });
+
+    $('#db-carga').click(function() {
+        var display = document.getElementById('carrega-db').style.display;
+        
+        if(display == "none")
+            document.getElementById('carrega-db').style.display = 'none';
+        else
+            document.getElementById('carrega-db').style.display = 'block';
+    });
+
 </script>
 
 
